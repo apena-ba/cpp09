@@ -6,7 +6,7 @@
 /*   By: apena-ba <apena-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 16:49:54 by apena-ba          #+#    #+#             */
-/*   Updated: 2023/04/09 05:07:17 by apena-ba         ###   ########.fr       */
+/*   Updated: 2023/04/09 05:38:00 by apena-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,7 +271,6 @@ bool BitcoinExchange::getFile(std::ifstream &infile){
         if(hole_file[i] == '\n')
             newlines++;
     }
-    newlines--;
 
     // Fill file content
     this->_file = new std::string[newlines + 1];
