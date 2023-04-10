@@ -6,7 +6,7 @@
 /*   By: apena-ba <apena-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:55:15 by apena-ba          #+#    #+#             */
-/*   Updated: 2023/04/09 03:59:45 by apena-ba         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:03:47 by apena-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class BitcoinExchange{
         void showExchange(std::string const &line);
         void runExchange();
 
-        // CHECK FUNCTIONS
+        // STATIC METHODS
         static bool checkKey(std::string const &key, std::string const &line);
         static bool checkValue(std::string const &value);
 };

@@ -6,7 +6,7 @@
 /*   By: apena-ba <apena-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 05:47:17 by apena-ba          #+#    #+#             */
-/*   Updated: 2023/04/09 07:25:49 by apena-ba         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:03:36 by apena-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class RPN{
         bool setUp(int argc, char **argv);
         bool run(void);
 
-        // STATIC FUNCTIONS
+        // STATIC METHODS
         static bool isValidToken(std::string const &s);
         static bool isOperand(std::string const &s);
         static std::string operate(int first, int second, std::string const &operand);
