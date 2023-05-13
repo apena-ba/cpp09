@@ -6,7 +6,7 @@
 /*   By: apena-ba <apena-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:55:15 by apena-ba          #+#    #+#             */
-/*   Updated: 2023/04/09 20:03:47 by apena-ba         ###   ########.fr       */
+/*   Updated: 2023/05/13 19:58:48 by apena-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class BitcoinExchange{
         std::map<std::string, std::string>  _map;
         std::string                         *_file;
         unsigned int                        _fileSize;
+        void formatDate(std::string &key);
     public:
         BitcoinExchange();
         BitcoinExchange(BitcoinExchange const &to_copy);

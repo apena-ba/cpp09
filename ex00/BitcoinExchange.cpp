@@ -6,7 +6,7 @@
 /*   By: apena-ba <apena-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 16:49:54 by apena-ba          #+#    #+#             */
-/*   Updated: 2023/04/09 05:38:00 by apena-ba         ###   ########.fr       */
+/*   Updated: 2023/05/13 20:06:29 by apena-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,27 @@ void BitcoinExchange::takeDateBack(std::string &to_change){
 
 // STATIC MEMBER FUNCTIONS
 
+void BitcoinExchange::formatDate(std::string &key){
+    std::stringstream buff(key);
+    std::string year;
+    std::string month;
+    std::string day;
+
+    // Check month
+    std::getline(buff, year, '-');
+    trimStr(year, '0');
+    std::getline(buff, month, '-');
+    trimStr(month, '0');
+    if(month.size() < 2)
+        month = "0" + month;
+    // Check day
+    std::getline(buff, day, '\0');
+    trimStr(day, '0');
+    if(day.size() < 2)
+        day = "0" + day;
+    key = year + "-" + month + "-" + day;
+}
+
 bool BitcoinExchange::checkKey(std::string const &key, std::string const &line){
     std::stringstream buff(key);
     std::string year;
@@ -133,6 +154,8 @@ bool BitcoinExchange::checkKey(std::string const &key, std::string const &line){
     num = static_cast<long>(atol(day.c_str()));
     if(num < 1 || num > 31)
         return (returnErr("bad input => " + line + "."));
+    else if(num == 1 && static_cast<long>(atol(month.c_str())) == 1 && static_cast<long>(atol(year.c_str())) == 2009)
+        return (returnErr("date out of range (2009-1-2 min) => " + line + "."));
     return true;
 }
 
@@ -228,7 +251,9 @@ bool BitcoinExchange::getDataBase(std::string const &name){
     std::stringstream   hole_file(buff);
 
     // Create and assign keys and values
+    int i = 0;
     while(1){
+        i++;
         std::getline(hole_file, buff, '\n');
         std::stringstream   buff_read(buff);
         std::string key;
@@ -336,6 +361,7 @@ void BitcoinExchange::showExchange(std::string const &line){
     trimStr(key, ' ');
     trimStrR(key, ' ');
     std::string original_key(key);
+    this->formatDate(key);
 
     // Get value from line
     std::getline(buff, value, '\0');

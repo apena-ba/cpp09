@@ -6,7 +6,7 @@
 /*   By: apena-ba <apena-ba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 08:08:04 by apena-ba          #+#    #+#             */
-/*   Updated: 2023/04/10 19:57:47 by apena-ba         ###   ########.fr       */
+/*   Updated: 2023/05/13 20:22:40 by apena-ba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,13 +215,13 @@ void PmergeMe::run(void){
     // PRINT TIME OF VECTOR
     std::cout << "Time to process a range of " << this->_nArgs;
     std::cout << " elements with std::vector<unsigend int> : ";
-    std::cout << std::fixed << std::setprecision(5) << (static_cast<double>(vec_end - vec_start) / CLOCKS_PER_SEC * 1000000.0);
+    std::cout << std::fixed << std::setprecision(5) << static_cast<double>(vec_end - vec_start);
     std::cout << " us" << std::endl;
 
     // PRINT TIME OF LIST
     std::cout << "Time to process a range of " << this->_nArgs;
     std::cout << " elements with std::list<unsigend int> : ";
-    std::cout << std::fixed << std::setprecision(5) << (static_cast<double>(list_end - list_start) / CLOCKS_PER_SEC * 1000000.0);
+    std::cout << std::fixed << std::setprecision(5) << static_cast<double>(list_end - list_start);
     std::cout << " us" << std::endl;
 
     return ;
